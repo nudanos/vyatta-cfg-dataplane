@@ -81,7 +81,9 @@ static struct xtables_target bypass_tg_reg[] = {
 	},
 };
 
-void _init(void)
+/* Registered when iptables dlopen()s the extension. A plain _init()
+ * clashes with the C runtime's (multiple definition of `_init'). */
+static void __attribute__((constructor)) bypass_tg_ldr(void)
 {
 	xtables_register_targets(bypass_tg_reg, ARRAY_SIZE(bypass_tg_reg));
 }
