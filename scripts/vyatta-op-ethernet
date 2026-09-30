@@ -93,8 +93,8 @@ my %mv2desc_sfp_hash = (
 
 my %mv2desc_qsfp_hash = (
     'index'              => { 'desc' => 'Channel' },
-    'output-power'       => { 'desc' => '  Tx power', 'unit' => ' dBm' },
-    'input-power'        => { 'desc' => '  Rx power', 'unit' => ' dBm' },
+    'output-power'       => { 'desc' => '  Tx power',      'unit' => ' dBm' },
+    'input-power'        => { 'desc' => '  Rx power',      'unit' => ' dBm' },
     'laser-bias-current' => { 'desc' => '  Laser Tx Bias', 'unit' => ' mA' },
 );
 
@@ -372,7 +372,7 @@ sub process_show_cmd {
                 || $line =~ /Link detected:/ )
           )
         {
-            print $line ;
+            print $line;
         }
     }
 }

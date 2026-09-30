@@ -11,8 +11,8 @@ use warnings;
 use Readonly;
 
 use Getopt::Long;
-use JSON qw( decode_json encode_json );
-use Data::Validate::IP qw(is_ipv4 is_ipv6);
+use JSON                qw( decode_json encode_json );
+use Data::Validate::IP  qw(is_ipv4 is_ipv6);
 use IPC::System::Simple qw(capture);
 
 use lib "/opt/vyatta/share/perl5/";
@@ -145,7 +145,7 @@ sub show_route_lookup {
     my $result = $decoded->{ $af_cmd . '_lookup' };
 
     foreach my $rt (@$result) {
-        my $addr = defined( $rt->{prefix} ) ? $rt->{prefix} : $rt->{address};
+        my $addr    = defined( $rt->{prefix} ) ? $rt->{prefix} : $rt->{address};
         my $nexthop = $rt->{next_hop};
 
         if ( defined( $rt->{nhg_platform_state} ) ) {
@@ -190,7 +190,7 @@ sub label_table_fec_hash {
 
     return \%config_fec unless $withprefix;
 
-    my $cmd = capture("opc show mpls label-table");
+    my $cmd   = capture("opc show mpls label-table");
     my @lines = split /\n/, $cmd;
     foreach my $line (@lines) {
         my ( $select, $fec, $inlbl, $outlbl ) = split( ' ', $line );
@@ -199,7 +199,7 @@ sub label_table_fec_hash {
         $tmp_fec{$fec} = $fec;
     }
 
-    $cmd = capture("opc show mpls forwarding");
+    $cmd   = capture("opc show mpls forwarding");
     @lines = split /\n/, $cmd;
     foreach my $line (@lines) {
         my ( $select, $fec, $nh, $outlbl ) = split( ' ', $line );

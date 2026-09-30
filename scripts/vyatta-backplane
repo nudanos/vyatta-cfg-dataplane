@@ -10,7 +10,7 @@ use warnings;
 use lib "/opt/vyatta/share/perl5/";
 use Getopt::Long;
 use Array::Utils;
-use List::MoreUtils qw(uniq);
+use List::MoreUtils   qw(uniq);
 use Vyatta::Backplane qw(get_backplane_intfs);
 
 my $bp_intfs;

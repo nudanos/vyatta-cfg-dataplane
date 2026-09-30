@@ -140,7 +140,7 @@ sub mss_cstore {
     }
 
     my @cstore_parts = split / /, $cstore_config;
-    my $interface = $cstore_parts[2];
+    my $interface    = $cstore_parts[2];
 
     my $family;
     if ( $cstore_parts[3] eq 'vif' ) {

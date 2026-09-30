@@ -12,7 +12,7 @@ use warnings;
 use Getopt::Long;
 use Term::Cap;
 use IO::Handle;
-use JSON qw( decode_json );
+use JSON               qw( decode_json );
 use Sort::Key::Natural qw(natsort);
 
 use lib "/opt/vyatta/share/perl5/";
@@ -150,7 +150,7 @@ sub show_repeated {
         print " > the interface is using directpath forwarding.\n";
         print " - not applicable.\n\n";
         STDOUT->flush();
-        last if ( defined($count) && --$count == 0 );
+        last            if ( defined($count) && --$count == 0 );
         sleep($refresh) if defined($refresh);
     }
 }

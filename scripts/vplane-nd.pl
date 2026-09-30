@@ -34,7 +34,7 @@ sub show_nd {
             printf $format, $entry->{ip}, $mac->as_IEEE(), $entry->{flags},
               $entry->{state}, $entry->{ifname};
         } else {
-            printf "%s %s\n", $entry->{ip}, $entry->{ifname};
+            printf "%s %s\n",              $entry->{ip}, $entry->{ifname};
             printf "    Flags: %s\n",      $entry->{flags};
             printf "    State: %s\n",      $entry->{state};
             printf "    HW Address: %s\n", $mac->as_IEEE();

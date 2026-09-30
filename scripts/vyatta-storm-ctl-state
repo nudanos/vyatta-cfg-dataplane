@@ -14,7 +14,7 @@ use JSON;
 
 my ( $dpids, $dpconns ) = Vyatta::Dataplane::setup_fabric_conns();
 
-my $cmd = 'storm-ctl show';
+my $cmd      = 'storm-ctl show';
 my @tr_types = ( 'unicast', 'multicast', 'broadcast' );
 
 my @dprsp = vplane_exec_cmd( $cmd, $dpids, $dpconns, 1 );
