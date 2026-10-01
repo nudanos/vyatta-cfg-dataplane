@@ -10,6 +10,10 @@ test -n "$VYATTA_VERSION" || VYATTA_VERSION=$PACKAGE_VERSION
 
 AC_CONFIG_AUX_DIR([config])
 AM_INIT_AUTOMAKE([foreign no-dist-gzip dist-bzip2 subdir-objects])
+
+# Where iptables loads extensions from
+PKG_CHECK_VAR([XTLIBDIR], [xtables], [xtlibdir], [],
+              [AC_MSG_ERROR([xtables.pc has no xtlibdir; install libxtables-dev])])
 AC_PREFIX_DEFAULT([/opt/vyatta])
 
 AC_CONFIG_FILES([Makefile])
