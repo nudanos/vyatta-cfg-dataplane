@@ -1,2 +1,2 @@
-platform/yang/vyatta-interfaces-dataplane-pause-deviations-siad-v1.yang lib/vyatta-platform/yang
-platform/vyatta-interfaces-dataplane-pause-deviations-siad.platform lib/vyatta-platform/platforms
+platform/yang/vyatta-interfaces-dataplane-pause-deviations-siad-v1.yang usr/lib/vyatta-platform/yang
+platform/vyatta-interfaces-dataplane-pause-deviations-siad.platform usr/lib/vyatta-platform/platforms
