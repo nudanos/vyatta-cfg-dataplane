@@ -85,7 +85,7 @@ Depends:
  vyatta-system,
  vyatta-update-vifs,
  vyatta-dataplane-op-ifconfig-1 | vyatta-kernel-forwarding,
- vyatta-interfaces-switch-v1-yang,
+ vyatta-interfaces-switch-v1-yang | vyatta-kernel-forwarding,
  python3,
  ${misc:Depends},
  ${yang:Depends}
