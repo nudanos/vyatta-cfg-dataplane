@@ -78,13 +78,13 @@ Description: Backend scripts dealing with configd.
 Package: vyatta-interfaces-dataplane-v1-yang
 Architecture: all
 Depends: 
- vplane-config (>= ${source:Version}),
+ vplane-config (>= ${source:Version}) | vyatta-kernel-forwarding,
  vyatta-cfg ( >= 0.104.32),
  vyatta-interfaces (>= 1.83),
  vyatta-op (>= 0.13),
  vyatta-system,
  vyatta-update-vifs,
- vyatta-dataplane-op-ifconfig-1,
+ vyatta-dataplane-op-ifconfig-1 | vyatta-kernel-forwarding,
  vyatta-interfaces-switch-v1-yang,
  python3,
  ${misc:Depends},
@@ -116,7 +116,7 @@ Description: vyatta dataplane mpls package
 Package: vyatta-interfaces-dataplane-unnumbered-v1-yang
 Architecture: all
 Depends: 
- vplane-config (>= ${source:Version}),
+ vplane-config (>= ${source:Version}) | vyatta-kernel-forwarding,
  vyatta-cfg ( >= 0.104.32),
  ${misc:Depends},
  ${yang:Depends}
@@ -296,7 +296,7 @@ Description: vyatta-interfaces-dataplane-rpc-v1 module
 Package: vyatta-op-show-interfaces-dataplane-v1-yang
 Architecture: all
 Depends: ${misc:Depends}, ${yang:Depends},
-	 vplane-config,
+	 vplane-config | vyatta-kernel-forwarding,
 	 vyatta-interfaces-base (>= 1.100)
 Description: vyatta-op-show-interfaces-dataplane-v1 module
  Operational mode integration for viewing dataplane interface configuration
