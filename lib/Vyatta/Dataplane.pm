@@ -36,6 +36,10 @@ my $TIMEOUT = 10000;    # timeout in milliseconds, so this is 10 sec
 
 my $PLATFORM_STATE_CMD = "/opt/vyatta/bin/vyatta-platform-util";
 
+# Present on systems that forward in the Linux kernel (vyatta-kernel-forwarding):
+# there is no DPDK dataplane and no controller to ask.
+our $KERNEL_FORWARDING_MARKER = "/opt/vyatta/etc/kernel-forwarding";
+
 # Create one ZMQ context when object is loaded
 # -- ok to create multiple instances each with own socketsa
 my $zctx = zmq_ctx_new();
@@ -285,6 +289,7 @@ sub is_dp_connected {
 
 sub get_vplane_info {
     my $urls    = shift;
+    return 0 if -e $KERNEL_FORWARDING_MARKER;
     my $decoded = controller_command('GETVPCONFIG');
     my @ids;
     my $local = 0;

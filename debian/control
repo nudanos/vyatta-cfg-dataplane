@@ -204,6 +204,12 @@ Package: libvyatta-dataplane-perl
 Architecture: all
 Section: perl
 Depends: 
+ libconfig-tiny-perl,
+ libgoogle-protocolbuffers-perl,
+ libipc-run3-perl,
+ libjson-perl,
+ libvyatta-dataplane-proto-support,
+ libzmq-constants-perl,
  libzmq-libzmq3-perl,
  vyatta-platform-util (>= 2.1),
  ${misc:Depends},

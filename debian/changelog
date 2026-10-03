@@ -1,3 +1,13 @@
+vplane-config (2.105) trixie; urgency=medium
+
+  * Vyatta::Dataplane reports no dataplanes on kernel-forwarding systems
+    (/opt/vyatta/etc/kernel-forwarding) instead of waiting for the DPDK
+    controller and dying: every commit of the interfaces tree failed with
+    "no response from dataplane", so the boot configuration never loaded.
+  * libvyatta-dataplane-perl declares the Perl modules it uses.
+
+ -- NuDanOS Maintainers <jon@fernandez.tech>  Fri, 02 Oct 2026 18:41:21 -0700
+
 vplane-config (2.104) trixie; urgency=medium
 
   * Port to Debian 13 (trixie): debhelper-compat 13, Standards-Version 4.7.2, Rules-Requires-Root, NuDanOS Vcs.
