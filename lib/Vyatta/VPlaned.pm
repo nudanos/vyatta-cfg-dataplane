@@ -25,6 +25,10 @@ use VPlanedEnvelope;
 # IPC socket to talk to controller
 my $controller_ipc = "ipc:///var/run/vyatta/vplaned.socket";
 
+# Present on systems that forward in the Linux kernel (vyatta-kernel-forwarding):
+# there is no DPDK dataplane and no controller to configure.
+our $KERNEL_FORWARDING_MARKER = "/opt/vyatta/etc/kernel-forwarding";
+
 # timeout in milliseconds, so this is 10 sec
 my $TIMEOUT = 10000;
 
@@ -168,6 +172,7 @@ sub _recv_reply {
 # This variant builds up the protobuf message
 sub store_pb {
     my ( $self, $path, $msg, $msg_type, $interface, $action ) = @_;
+    return if -e $KERNEL_FORWARDING_MARKER;
     my $sock = $self->{socket};
 
     #allow the callee to override the action applied to this
@@ -234,6 +239,7 @@ sub store_pb {
 # fatal in case of errors
 sub store {
     my ( $self, $path, $cmd, $interface, $action ) = @_;
+    return if -e $KERNEL_FORWARDING_MARKER;
     my $sock = $self->{socket};
 
     #allow the callee to override the action applied to this
