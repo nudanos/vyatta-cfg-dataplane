@@ -1,3 +1,10 @@
+vplane-config (2.107) trixie; urgency=medium
+
+  * go vet the vplaned Go library (shipped as source); its Go
+    dependencies are build dependencies <!nocheck>.
+
+ -- NuDanOS Maintainers <jon@fernandez.tech>  Sun, 11 Oct 2026 11:17:15 -0700
+
 vplane-config (2.106) trixie; urgency=medium
 
   * Vyatta::VPlaned stores succeed without sending on kernel-forwarding

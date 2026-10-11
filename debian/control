@@ -23,7 +23,12 @@ Build-Depends: debhelper-compat (= 13),
  libvyatta-dataplane-proto-dev,
  libvyatta-controller-proto-dev,
  libb64-dev,
- pkg-config
+ pkg-config,
+ golang-go <!nocheck>,
+ golang-goprotobuf-dev <!nocheck>,
+ golang-github-danos-vyatta-controller-protobuf-dev <!nocheck>,
+ golang-github-danos-vyatta-dataplane-protobuf-dev <!nocheck>,
+ golang-github-zeromq-goczmq-dev <!nocheck>
 Standards-Version: 4.7.2
 X-Python3-Version: >= 3.3
 Rules-Requires-Root: no

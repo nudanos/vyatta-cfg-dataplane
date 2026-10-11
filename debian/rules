@@ -35,3 +35,5 @@ override_dh_auto_install:
 override_dh_auto_test:
 	VERBOSE=1 make check
 	dh_auto_test
+	# NuDanOS: vet every Go package (the library is shipped as source)
+	GOPATH=/usr/share/gocode GO111MODULE=off go vet ./lib/go/vplaned
